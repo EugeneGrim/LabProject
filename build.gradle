@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.epam'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'org.springframework:spring-core:5.1.4.RELEASE'
+    compile 'org.springframework:spring-context:5.1.4.RELEASE'
+    compile 'org.springframework:spring-aop:5.1.4.RELEASE'
+    compile 'org.springframework:spring-webmvc:5.1.4.RELEASE'
+    compile 'org.springframework:spring-web:5.1.4.RELEASE'
+    compile 'javax.servlet:jstl:1.2'
+}
