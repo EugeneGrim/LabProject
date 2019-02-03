@@ -1,17 +1,22 @@
 package com.epam.lowcostsales.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.epam.lowcostsales.service.SimpleService;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-@Controller
-public class HelloWorldController {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-    @RequestMapping("/about")
-    public ModelAndView helloWorld() {
+public class HelloWorldController extends MultiActionController {
 
-        String message = "<br><div style='text-align:center;'>"
-                + "<h3>********** Hello World! **********</h3>********** Test message **********</div><br><br>";
-        return new ModelAndView("about", "message", message);
+    private SimpleService simpleService;
+
+    public HelloWorldController(SimpleService simpleService) {
+        this.simpleService = simpleService;
+    }
+
+    public ModelAndView about(HttpServletRequest request,
+                              HttpServletResponse response) throws Exception {
+        return new ModelAndView("about", "message", simpleService.getMessage());
     }
 }
