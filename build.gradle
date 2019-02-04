@@ -1,7 +1,19 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
+    }
+}
+
 plugins {
     id 'java'
     id 'war'
 }
+
+apply plugin: 'com.bmuschko.tomcat'
 
 group 'com.epam'
 version '1.0-SNAPSHOT'
@@ -21,4 +33,14 @@ dependencies {
     compile 'org.springframework:spring-web:4.3.22.RELEASE'
     compile group: 'org.apache.tomcat', name: 'tomcat-servlet-api', version: '9.0.14'
     compile 'javax.servlet:jstl:1.2'
+    
+    def tomcatVersion = '9.0.1'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:9.0.0.M6",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+}
+
+tomcat {
+    httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
+    ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
 }
