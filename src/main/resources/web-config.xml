@@ -15,8 +15,6 @@
 
     <bean class = "org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
-    <bean id="simpleServiceImpl" class="com.epam.lowcostsales.service.impl.SimpleServiceImpl"/>
-
     <bean name = "/about.html" class="com.epam.lowcostsales.controller.HelloWorldController">
         <constructor-arg ref = "simpleServiceImpl"/>
     </bean>
