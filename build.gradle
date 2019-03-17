@@ -29,7 +29,7 @@ dependencies {
     compile 'com.h2database:h2:1.4.197'
     compile 'org.springframework:spring-webmvc:4.3.22.RELEASE'
     compile 'org.springframework:spring-jdbc:4.3.22.RELEASE'
-    compile group: 'org.apache.tomcat', name: 'tomcat-servlet-api', version: '9.0.14'
+    compile 'org.apache.tomcat:tomcat-servlet-api:9.0.14'
     compile 'javax.servlet:jstl:1.2'
     
     def tomcatVersion = '9.0.1'
