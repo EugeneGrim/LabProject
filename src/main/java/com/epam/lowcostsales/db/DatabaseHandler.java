@@ -24,7 +24,7 @@ public class DatabaseHandler {
         try (Connection dbConnection = dataSource.getConnection();
         		Statement statement = dbConnection.createStatement()) {
             
-			executeDBScripts2("/DB/create_database_tables.sql", statement);
+			executeDBScripts("/DB/create_database_tables.sql", statement);
 
         } catch (SQLException e) {
             //TODO write log
@@ -37,7 +37,7 @@ public class DatabaseHandler {
         try (Connection dbConnection = dataSource.getConnection();
         		Statement statement = dbConnection.createStatement()) {
 
-        	executeDBScripts2("/DB/fill_in_test_data_in_database.sql", statement);
+        	executeDBScripts("/DB/fill_in_test_data_in_database.sql", statement);
 
         } catch (SQLException e) {
             //TODO write log
@@ -45,7 +45,7 @@ public class DatabaseHandler {
         }
     }
     
-    private void executeDBScripts2(String SQLScriptFilePath, Statement statement) {
+    private void executeDBScripts(String SQLScriptFilePath, Statement statement) {
 
         try (InputStream resourceStream = getClass().getResourceAsStream(SQLScriptFilePath);
         		BufferedReader in = new BufferedReader(new InputStreamReader(resourceStream))) {
@@ -64,7 +64,7 @@ public class DatabaseHandler {
         try (Connection dbConnection = dataSource.getConnection();
         		Statement statement = dbConnection.createStatement()) {
 
-            executeDBScripts2("/DB/drop_all_tables.sql", statement);
+            executeDBScripts("/DB/drop_all_tables.sql", statement);
 
         } catch (SQLException e) {
             //TODO write log
