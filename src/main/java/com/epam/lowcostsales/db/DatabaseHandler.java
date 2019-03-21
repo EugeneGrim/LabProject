@@ -20,7 +20,6 @@ public class DatabaseHandler {
     }
 
     public void createDB() {
-
         try (Connection dbConnection = dataSource.getConnection();
         		Statement statement = dbConnection.createStatement()) {
             
@@ -33,7 +32,6 @@ public class DatabaseHandler {
     }
 
     public void fillTestDataInDB() {
-
         try (Connection dbConnection = dataSource.getConnection();
         		Statement statement = dbConnection.createStatement()) {
 
@@ -46,7 +44,6 @@ public class DatabaseHandler {
     }
     
     private void executeDBScripts(String SQLScriptFilePath, Statement statement) {
-
         try (InputStream resourceStream = getClass().getResourceAsStream(SQLScriptFilePath);
         		BufferedReader in = new BufferedReader(new InputStreamReader(resourceStream))) {
             String str;
